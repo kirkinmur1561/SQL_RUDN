@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/kirill/RiderProjects/SQL_RUDN/Lab_1/Lab_1.csproj": {}
+    "/home/kirill/RiderProjects/SQL_RUDN/Lab_3/Lab_3.csproj": {}
   },
   "projects": {
-    "/home/kirill/RiderProjects/SQL_RUDN/Lab_1/Lab_1.csproj": {
+    "/home/kirill/RiderProjects/SQL_RUDN/Lab_3/Lab_3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/kirill/RiderProjects/SQL_RUDN/Lab_1/Lab_1.csproj",
-        "projectName": "Lab_1",
-        "projectPath": "/home/kirill/RiderProjects/SQL_RUDN/Lab_1/Lab_1.csproj",
+        "projectUniqueName": "/home/kirill/RiderProjects/SQL_RUDN/Lab_3/Lab_3.csproj",
+        "projectName": "Lab_3",
+        "projectPath": "/home/kirill/RiderProjects/SQL_RUDN/Lab_3/Lab_3.csproj",
         "packagesPath": "/home/kirill/.nuget/packages/",
-        "outputPath": "/home/kirill/RiderProjects/SQL_RUDN/Lab_1/obj/",
+        "outputPath": "/home/kirill/RiderProjects/SQL_RUDN/Lab_3/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/share/dotnet/sdk/NuGetFallbackFolder"
@@ -46,12 +46,6 @@
               "version": "[5.0.17, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
-              "target": "Package",
-              "version": "[5.0.17, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.17, )"
             }

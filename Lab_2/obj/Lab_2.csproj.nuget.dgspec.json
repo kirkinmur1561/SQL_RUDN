@@ -1,33 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "S:\\ReposProject\\SQL_RUDN\\Lab_2\\Lab_2.csproj": {}
+    "/home/kirill/RiderProjects/SQL_RUDN/Lab_2/Lab_2.csproj": {}
   },
   "projects": {
-    "S:\\ReposProject\\SQL_RUDN\\Lab_2\\Lab_2.csproj": {
+    "/home/kirill/RiderProjects/SQL_RUDN/Lab_2/Lab_2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "S:\\ReposProject\\SQL_RUDN\\Lab_2\\Lab_2.csproj",
+        "projectUniqueName": "/home/kirill/RiderProjects/SQL_RUDN/Lab_2/Lab_2.csproj",
         "projectName": "Lab_2",
-        "projectPath": "S:\\ReposProject\\SQL_RUDN\\Lab_2\\Lab_2.csproj",
-        "packagesPath": "C:\\Users\\Кирилл\\.nuget\\packages\\",
-        "outputPath": "S:\\ReposProject\\SQL_RUDN\\Lab_2\\obj\\",
+        "projectPath": "/home/kirill/RiderProjects/SQL_RUDN/Lab_2/Lab_2.csproj",
+        "packagesPath": "/home/kirill/.nuget/packages/",
+        "outputPath": "/home/kirill/RiderProjects/SQL_RUDN/Lab_2/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "S:\\VS_SDK\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Кирилл\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/home/kirill/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -67,22 +62,17 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[5.0.12, 5.0.12]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
         }
       }
     }
