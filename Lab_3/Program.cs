@@ -26,7 +26,7 @@ namespace Lab_3
             string textPerson;
             while (true)
             {
-                Console.Write("Введите номер задачи от 1 до 19.\nЕсли нужно закрыть программу нажмите Enter:\n");
+                Console.Write("Введите номер задачи от 1 до 6.\nЕсли нужно закрыть программу нажмите Enter:\n");
                 textPerson = Console.ReadLine();
                 if (string.IsNullOrEmpty(textPerson))
                 {
@@ -71,9 +71,7 @@ namespace Lab_3
                         Console.Clear();                        
                         break;
                 }
-            }
-
-           
+            }           
         }
 
         /// <summary>
@@ -145,11 +143,11 @@ namespace Lab_3
             s4.Marks.Add(m3);
             
             Student s5 = new Student()
-            {
-                Name = "Лиза",
-                Old = 18,
-                Sex = false
-            };
+                {
+                    Name =  "Лиза",
+                    Old = 18,
+                    Sex = false                    
+                };
             s5.Marks.Add(m5);
             _ct.Students.AddRange(s1,s2,s3,s4,s5);
             _ct.SaveChanges();
@@ -175,23 +173,73 @@ namespace Lab_3
         
         static void Task_3()
         {
-            Console.WriteLine("SELECTname, subject, mark FROM marks JOIN students ON students.rowid = marks.id WHERE mark > (SELECT mark FROM marks WHERE id = 2 AND subject LIKE 'Си') AND subject LIKE 'Си'");
-            //ufjhgvhgv
+            Console.WriteLine(
+                "SELECT name, subject, mark FROM marks JOIN students ON students.rowid = marks.id WHERE mark > (SELECT mark FROM marks WHERE id = 2 AND subject LIKE 'Си') AND subject LIKE 'Си'");
+
+            var ms = _ct
+                .Marks
+                .Where(w =>
+                    w.Mark_ > _ct.Marks
+                        .FirstOrDefault(f => f.Id == 2 || EF.Functions.Like(f.Subject, CollectionSubject[0])).Mark_ ||
+                    EF.Functions.Like(w.Subject, CollectionSubject[0]))
+                .ToList();
+
+            var sts = _ct.Students.Where(w => ms.Select(s => s.StudentId).Contains(w.Id)).ToList();
+            Console.WriteLine(string.Join("\n", ms.Select(s => $"{s.Student.Name}\t{s.Subject}\t{s.Mark_}")));
+
+            Console.WriteLine(
+                "SELECT name, subject, mark FROM marks JOIN students ON students.rowid = marks.id WHERE mark > (SELECT mark FROM marks WHERE id = 2 ) AND subject LIKE 'Си'");
+            
+            ms = _ct
+                .Marks
+                .Where(w =>
+                    w.Mark_ > _ct.Marks
+                        .FirstOrDefault(f => f.Id == 2).Mark_ ||
+                    EF.Functions.Like(w.Subject, CollectionSubject[0]))
+                .ToList();
+            
+            sts = _ct.Students.Where(w => ms.Select(s => s.StudentId).Contains(w.Id)).ToList();
+            
+            Console.WriteLine(string.Join("\n", ms.Select(s => $"{s.Student.Name}\t{s.Subject}\t{s.Mark_}")));
         }
         
         static void Task_4()
         {
-            
+            Console.WriteLine("UPDATE marks SET mark = 0 WHERE mark <= (SELECT min(mark) FROM marks WHERE id = 1)");
+            _ct.Marks.Where(w => w.Mark_ <= _ct.Marks.Where(w => w.StudentId == 1).Min(q => q.Mark_)).ToList()
+                .ForEach(f => f.Mark_ = 0);
+            _ct.SaveChanges();
         }
         
         static void Task_5()
         {
-            
+            Console.WriteLine("DELETE FROM students WHERE old < (SELECT old FROM students WHERE id = 2)");
+            var sts = _ct.Students.Where(w => w.Old < _ct.Students.FirstOrDefault(f => f.Id == 2).Old);
+            _ct.Students.RemoveRange(sts);
+            _ct.SaveChanges();
         }
         
         static void Task_6()
         {
+            Car c1 = new Car()
+            {
+                Model = "KAMAZ КОМПАС",
+                Price = 32642
+            };
             
+            Car c2 = new Car()
+            {
+                Model = "Лада Президент",
+                Price = 5154
+            };
+            
+            Car c3 = new Car()
+            {
+                Model = "Москвич пасфаиндер",
+                Price = 3000
+            };
+
+            _ct.Cars.AddRange(c1, c2, c3);
         }
     }
 }
