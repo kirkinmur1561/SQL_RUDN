@@ -11,8 +11,7 @@ namespace Lab_3
         /// <summary>
         /// Набор предметов
         /// </summary>
-        private static readonly string[] CollectionSubject = new[]
-        {
+        private static readonly string[] CollectionSubject = {
             "Си",
             "Химия",
             "ДифУры"
@@ -107,10 +106,7 @@ namespace Lab_3
             {
                 Subject = CollectionSubject[1],
                 Mark_ = 4
-            };
-            
-            _ct.Marks.AddRange(m1,m2,m3,m4,m5);
-            _ct.SaveChanges();
+            };            
            
             Student s1 = new Student()
             {
@@ -239,7 +235,42 @@ namespace Lab_3
                 Price = 3000
             };
 
-            _ct.Cars.AddRange(c1, c2, c3);
+            var bt = _ct.Database.BeginTransaction();
+            try
+            {
+                _ct.Cars.AddRange(c1, c2, c3);
+                _ct.SaveChanges();
+                bt.Commit();
+            }
+            catch
+            {
+                bt.Rollback();
+            }
+            finally
+            {
+                bt.Dispose();
+            }
+
+            Customer cust1 = new Customer()
+            {
+                Name = "Федер"
+            };
+
+            Car c4 = new Car()
+            {
+                Model = "Запорожец",
+                Price = 1000
+            };
+
+            _ct.Cars.Add(c4);
+            _ct.Customers.Add(cust1);
+            _ct.SaveChanges();
+
+            
+            Customer customer = cust1;
+            cust1.IsTradeIn = true;
+            _ct.Customers.ToList().Insert(0, customer);
+            _ct.SaveChanges();            
         }
     }
 }

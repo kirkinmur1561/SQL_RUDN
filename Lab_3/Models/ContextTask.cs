@@ -8,6 +8,7 @@ namespace Lab_3.Models
         public DbSet<Student> Students { get; set; }
         public DbSet<Mark> Marks { get; set; }
         public DbSet<Car> Cars { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
             optionsBuilder.UseSqlite("Data Source = lab_3.db");

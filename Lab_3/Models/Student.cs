@@ -39,10 +39,7 @@ namespace Lab_3.Models
             return Equals((Student) obj);
         }
 
-        public override int GetHashCode()
-        {
-            return Id;
-        }
+        public override int GetHashCode() => Id;        
 
         public override string ToString() =>
             $"{Id}\t{Name}\t{Sex}\t{Old}";
