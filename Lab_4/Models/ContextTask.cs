@@ -11,6 +11,10 @@ namespace Lab_4.Models
         public DbSet<GroupOfStudent> GroupOfStudents { get; set; }
         public DbSet<EvaluationMethod> EvaluationMethods { get; set; }
         
+        public DbSet<ULessonGroup> ULessonsAndGroups { get; set; }
+        public DbSet<UStudentGroup> UStudentsAndGroups { get; set; }
+        public DbSet<UStudentLesson> UStudentLessons { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
             optionsBuilder.UseSqlite("Data Source = lab_4.db");
 

@@ -11,9 +11,9 @@ namespace Lab_4.Models
         
         public enum E_EM
         {
-            Exam = 0,       //экзамен
-            Offset = 1,     //зачет
-            Test = 2        // контрольная работа
+            Exam,       //экзамен
+            Offset,     //зачет
+            Test      // контрольная работа
         }
         
         public E_EM TypeOfEM { get; set; }
