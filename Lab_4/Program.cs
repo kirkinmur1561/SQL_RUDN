@@ -15,9 +15,10 @@ namespace Lab_4
         {
             _ct = new ContextTask();
             await Task_2();
-            await Task_3();
+            /*await Task_3();
             await Task_4();
-            await Task_5();
+            await Task_5();*/
+            await Task_6();
             await _ct.DisposeAsync();
             Console.WriteLine("End point app. Press enter...");
             Console.ReadLine();
@@ -331,6 +332,17 @@ namespace Lab_4
            
             
             Console.WriteLine("Готово!");
+        }
+
+        static async Task Task_6()
+        {
+            await _ct.Students.ToListAsync();
+            await _ct.Totals.ToListAsync();
+            IEnumerable<GroupOfStudent> groupOfStudents = await _ct.GroupOfStudents.ToListAsync();
+
+            Console.WriteLine(string.Join("\n",
+                groupOfStudents.Select(s =>
+                    $"{s.Name}\n\t{string.Join("\t\n", s.StudentGroups.Select(s => $"Name:{s.Student.Name} AVG:{s.Student.Totals.Average(w=>w.Score)}"))}")));
         }
     }
 }
